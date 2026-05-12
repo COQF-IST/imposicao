@@ -55,33 +55,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateDisplay(data, force = false) {
-        console.log("WOWWWW 0");
         if(!data) return;
-        console.log("WOWWWW 1");
         if(data[0]["Last Edit"] <= lastEdit && !force) return;
         lastEdit = data[0]["Last Edit"];
 
-        console.log(JSON.stringify(data));
-        console.log("WOWWWW 2");
+        console.log(data);
         let lateMs = 0;
         let foundCurrent = false;
         let i_proximo = 0;
         let htmlProximos = ``;
 
-        console.log("WOWWWW 3");
         for(const key of data) {
-            console.log("WOWWWW 4");
             if(key["Atual"] === false) {
                 nomeElement.innerText = key["Nome"];
                 cursoElement.innerText = key["Curso"];
                 foundCurrent = true;
-                console.log("WOWWWW 5");
                 continue;
             }
-            console.log("WOWWWW 6");
 
             if(foundCurrent) {
-                console.log("WOWWWW 7");
                 const horas = key["Hora"].split(":");
                 const date = getImposicaoCurrentTime();
                 date.setHours(horas[0], horas[1]);
@@ -111,19 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 i_proximo++;
-                console.log("WOWWWW 8");
                 if(i_proximo > 4 && !seeAll) break;
-                console.log("WOWWWW 9");
             }
         }
-        console.log("WOWWWW 10");
 
         listaProximosElement.innerHTML = htmlProximos;
         lastUpdatedElement.innerText = new Date().toLocaleTimeString('pt-PT');
         lastRetrievedData = data;
-        console.log("WOWWWW 11");
-
-        //loadTamara();
+        loadTamara();
     }
 
     seeAllElement.addEventListener('click', () => {
@@ -132,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         seeAllElement.innerText = seeAll ? "Mostrar apenas 5 Horários" : "Ver todos os Horários";
     })
 
-    /*tamaraElement.addEventListener('click', () => {
+    tamaraElement.addEventListener('click', () => {
         const duration = 5000; // 5 seconds
         const end = Date.now() + duration;
 
@@ -146,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 50);
 
         loadTamara();
-    });*/
+    });
 })
 
 /* TAMARAAAAAAS */
@@ -156,27 +143,25 @@ function loadTamara() {
     const card = document.querySelector('.card');
     const rect = card.getBoundingClientRect();
 
-    const imgSize = 60; // Your image width
+    const imgSize = 60;
     const winW = window.innerWidth;
     const winH = window.innerHeight;
 
+    const leftGutterWidth = rect.left;
+    const rightGutterWidth = winW - rect.right;
+
     let x, y;
-    let isInsideCard = true;
 
-    while (isInsideCard) {
-        x = Math.random() * (winW - 20) - 20;
-        y = Math.random() * (winH - 20) - 20;
-
-        const hitHorizontal = x > (rect.left - imgSize) && x < rect.right;
-        const hitVertical = y > (rect.top - imgSize) && y < rect.bottom;
-
-        if (!(hitHorizontal && hitVertical)) {
-            isInsideCard = false;
-        }
+    if (Math.random() < (leftGutterWidth / (leftGutterWidth + rightGutterWidth))) {
+        x = Math.random() * (leftGutterWidth - imgSize);
+    } else {
+        x = rect.right + Math.random() * (rightGutterWidth - imgSize);
     }
 
-    tamara.style.left = `${x}px`;
-    tamara.style.top = `${y}px`;
+    y = Math.random() * (winH - imgSize);
+
+    tamara.style.left = `${Math.max(0, x)}px`;
+    tamara.style.top = `${Math.max(0, y)}px`;
     tamara.style.transform = `rotate(${Math.floor(Math.random() * 360)}deg)`;
     tamara.style.display = 'block';
 }
