@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     htmlProximos += `
                         <div class="proximo-item">
                             <span class="proximo-hora">${key["Hora"]}</span>
-                            <span class="proximo-nome">${key["Nome"]} (${key["Curso"] ? key["Curso"] : ""})</span>
+                            <span class="proximo-nome">${key["Nome"]} (${key["Curso"] ? key["Curso"] : "IST"})</span>
                         </div>
                     `;
                 }
