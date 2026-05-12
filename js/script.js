@@ -168,7 +168,7 @@ function loadTamara() {
 
 function createFallingTamara() {
     const t = document.createElement('img');
-    t.src = '/img/tamara.png';
+    t.src = 'img/tamara.png';
     t.classList.add('falling-tamara');
 
     t.style.left = Math.random() * 100 + 'vw';
