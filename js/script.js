@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastRetrievedData = data;
         console.log("WOWWWW 11");
 
-        loadTamara();
+        //loadTamara();
     }
 
     seeAllElement.addEventListener('click', () => {
