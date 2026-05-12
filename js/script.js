@@ -55,25 +55,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateDisplay(data, force = false) {
+        console.log("WOWWWW 0");
         if(!data) return;
+        console.log("WOWWWW 1");
         if(data[0]["Last Edit"] <= lastEdit && !force) return;
         lastEdit = data[0]["Last Edit"];
 
-        console.log(data);
+        console.log(JSON.stringify(data));
+        console.log("WOWWWW 2");
         let lateMs = 0;
         let foundCurrent = false;
         let i_proximo = 0;
         let htmlProximos = ``;
 
+        console.log("WOWWWW 3");
         for(const key of data) {
+            console.log("WOWWWW 4");
             if(key["Atual"] === false) {
                 nomeElement.innerText = key["Nome"];
                 cursoElement.innerText = key["Curso"];
                 foundCurrent = true;
+                console.log("WOWWWW 5");
                 continue;
             }
+            console.log("WOWWWW 6");
 
             if(foundCurrent) {
+                console.log("WOWWWW 7");
                 const horas = key["Hora"].split(":");
                 const date = getImposicaoCurrentTime();
                 date.setHours(horas[0], horas[1]);
@@ -103,13 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 i_proximo++;
+                console.log("WOWWWW 8");
                 if(i_proximo > 4 && !seeAll) break;
+                console.log("WOWWWW 9");
             }
         }
+        console.log("WOWWWW 10");
 
         listaProximosElement.innerHTML = htmlProximos;
         lastUpdatedElement.innerText = new Date().toLocaleTimeString('pt-PT');
         lastRetrievedData = data;
+        console.log("WOWWWW 11");
 
         loadTamara();
     }
