@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             updateDisplay(results.data);
+            console.log("DONE");
         } catch (error) {
             console.error(error);
         }
