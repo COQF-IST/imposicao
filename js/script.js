@@ -1,6 +1,14 @@
-//const sheetsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRZNnsU_K4Pt4t0PTvhLf_0rO5dUhdlrYL79VnkTyd1_tA8n_RKSx7_2YuTUCoIgVN7_wc-IY3ONign/pub?output=csv"
-const sheetID = "1FC6e6SEMQ_bKqu7GogIkrqq0JEk6mWE0F8wipIAiPzo";
+const imposicaoDate = [2026, 4, 15]; // year, month - 1, day
+const sheetID = "1FC6e6SEMQ_bKqu7GogIkrqq0JEk6mWE0F8wipIAiPzo"; // GOOGLE SHEETS ID
 const sheetsURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv`;
+
+function getImposicaoCurrentTime() {
+    const date = new Date();
+    date.setFullYear(imposicaoDate[0]);
+    date.setMonth(imposicaoDate[1]);
+    date.setDate(imposicaoDate[2]);
+    return date;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     let lastRetrievedData = null;
@@ -67,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(foundCurrent) {
                 const horas = key["Hora"].split(":");
-                const date = new Date();
+                const date = getImposicaoCurrentTime();
                 date.setHours(horas[0], horas[1]);
 
                 if(!htmlProximos) {
