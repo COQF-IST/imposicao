@@ -1,0 +1,135 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Specifically stops horizontal scrolling */
+    position: relative;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #E6F3FA;
+    color: #333;
+}
+
+.card {
+    text-align: center;
+    padding: 3rem 2rem 2rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    border-top: 10px solid #009de0;
+    width: 65%;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.logo {
+    margin: 0 auto;
+    width: 100px;
+}
+
+#curso {
+    font-size: 1.8rem;
+    color: #5DADE2;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    min-height: 2.5rem;
+}
+
+/* PROXIMOS */
+
+.proximos-container {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: left;
+}
+
+.proximos-titulo {
+    font-size: 0.9rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.proximos-lista {
+    overflow: auto;
+    margin: 0 auto;
+    width: fit-content;
+    max-height: 30vh;
+}
+
+@media (max-width: 950px) {
+    .proximos-lista {
+        max-height: 60vh !important;
+    }
+}
+
+.proximo-item {
+    padding: 0.3rem 0;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.proximo-hora {
+    font-weight: bold;
+    color: #999;
+    text-align: right;
+}
+
+.proximo-hora-late {
+    color: #894d4d;
+}
+
+.proximo-hora-late-old {
+    text-decoration: line-through;
+}
+
+.proximo-nome {
+    margin-left: 8px;
+}
+
+/* Last Updated */
+.atualizado {
+    margin-top: 20px;
+    color: #999;
+}
+
+.atualizado a {
+    color: #999;
+}
+
+/* TAMARAAAAAAAAAAAAAAAAAAAAAAAAS */
+
+#tamara-main {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    width: 40px;
+    z-index: 0;
+}
+
+.falling-tamara {
+    position: fixed;
+    top: -50px;
+    width: 50px;
+    z-index: 9999;   /* Make sure they are on top of everything */
+    pointer-events: none; /* So they don't block clicks */
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}

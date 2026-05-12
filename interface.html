@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação de Finalistas</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link href="/css/style.css" rel="stylesheet"/>
+    <script src="/js/papaparse.min.js"></script>
+    <script src="/js/script.js"></script>
+</head>
+<body>
+    <img id="tamara-main" src="/img/tamara.png" />
+
+    <div class="card">
+        <img class="logo" src="/img/coqfist.jpg"/>
+
+        <div class="destaque">
+            <h1 class="nome" id="nome">A preparar...</h1>
+            <div class="curso" id="curso"></div>
+        </div>
+
+        <div class="proximos-container" id="proximos-container">
+            <div class="proximos-titulo">A seguir</div>
+            <div class="proximos-lista" id="lista-proximos">
+                <div class="proximos-titulo" style="font-size: 50px">...</div>
+            </div>
+        </div>
+
+        <div class="atualizado">
+            Horários estimados sujeitos a alteração.<br>
+            (<a id="see-all" href="javascript:void(0)">Ver todos os Horários</a>)
+        </div>
+
+        <div class="atualizado">
+            Última vez atualizado: <span id="lastUpdated"></span> (<a href="">Atualizar</a>)<br>
+        </div>
+    </div>
+</body>
+</html>
