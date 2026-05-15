@@ -1,5 +1,5 @@
-const imposicaoDate = [2026, 4, 15]; // year, month - 1, day
-const sheetID = "1FC6e6SEMQ_bKqu7GogIkrqq0JEk6mWE0F8wipIAiPzo"; // GOOGLE SHEETS ID
+const imposicaoDate = [2026, 4, 16]; // year, month - 1, day
+const sheetID = "1K93chYWYV-zn9QHCuH-XBS1wdlrwjGY6BmjjFYD6Mzs"; // GOOGLE SHEETS ID
 const sheetsURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv`;
 
 function getImposicaoCurrentTime() {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let htmlProximos = ``;
 
         for(const key of data) {
-            if(key["Atual"] === false) {
+            if(key["Estado"] === false) {
                 nomeElement.innerText = key["Nome"];
                 cursoElement.innerText = key["Curso"];
                 foundCurrent = true;
