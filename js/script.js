@@ -1,6 +1,7 @@
 const imposicaoDate = [2026, 4, 16]; // year, month - 1, day
-const sheetID = "1K93chYWYV-zn9QHCuH-XBS1wdlrwjGY6BmjjFYD6Mzs"; // GOOGLE SHEETS ID
-const sheetsURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv`;
+const sheetID = "1BDq4zrDaDALqqYwr6kHeenBTpOSNArJraY1nVWdrV7s"; // GOOGLE SHEETS ID
+const sheetName = "Horário finalistas"; // GOOGLE SHEETS TAB NAME
+const sheetsURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(sheetName)}`;
 
 function getImposicaoCurrentTime() {
     const date = new Date();
